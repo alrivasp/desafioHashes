@@ -1,8 +1,3 @@
-num = []
-num << ARGV[0].to_i
-num << ARGV[1].to_i
-num << ARGV[2].to_i
-
 ventas = {
     Enero: 15000,
     Febrero: 22000,
@@ -18,15 +13,15 @@ ventas = {
     Diciembre: 21000
     }
 
-def search sales, cifra
+def search sales
     result = ""
-    cifra.each do |c|
-         sales.has_value?(c) ? result += "#{c} " : result += "no encontrado "
+    ARGV.each do |c|
+         sales.has_value?(c.to_i) ? result += "#{sales.invert[c.to_i]} " : result += "no encontrado "
     end
     result
 end
 
-print search(ventas, num)
+print search(ventas)
 
 
 
